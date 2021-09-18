@@ -1,2 +1,2 @@
-# simple_cpp_apps
+# simple C++ apps
 Simple and small C++ projects for practicing and testing my ideas. 
