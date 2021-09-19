@@ -6,6 +6,3 @@ All projects will be listed here ordered from latest to oldest
 
 ### [0] CSV library
 It handles CSV files including writing and reading from them.
-
-### [1] HTML Generator
-A fast way to generate detailed HTML code from less code
