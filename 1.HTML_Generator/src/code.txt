@@ -1,3 +1,4 @@
+:head
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,9 +6,15 @@
     </head>
     <body>
 
+:h1
 <h1>Heading</h1>
 
+:h2
 <h2>Heading</h2>
 
+:p
 <p>This is a paragraph</p>
 
+:end
+    </body>
+</html>
