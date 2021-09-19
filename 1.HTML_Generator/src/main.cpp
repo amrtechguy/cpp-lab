@@ -8,16 +8,14 @@ class HTML
 {
 private:
     std::string code_file_path, input_file_path, output_file_path;
-
     std::ifstream code_file, input_file;
     std::ofstream output_file;
-
     std::map<std::string, std::string> code_map;
 
 public:
     /* constructor */
     HTML(std::string code_file_path, std::string input_file_path, std::string output_file_path)
-    :   code_file_path {code_file_path}, input_file_path {input_file_path}, output_file_path {output_file_path}
+        :   code_file_path {code_file_path}, input_file_path {input_file_path}, output_file_path {output_file_path}
     {
         // open the code file
         code_file.open(code_file_path);
@@ -63,9 +61,8 @@ public:
                 if(!key.empty())
                 {
                     this->code_map.insert(std::make_pair(key, value));
-                    key = "";
-                    value = "";
                     key = line;
+                    value = "";
                     continue;
                 }
 
@@ -116,6 +113,7 @@ public:
 int main()
 {
     HTML html {"code.txt", "input.txt", "output.txt"};
+    html.display_code_map();
 
     return 0;
 }
