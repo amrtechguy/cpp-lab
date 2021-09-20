@@ -1,6 +1,5 @@
 :head
-:footer
+:nav
 :h1
-:h2
-:p
+:article
 :footer

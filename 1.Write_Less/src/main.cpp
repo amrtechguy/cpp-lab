@@ -2,19 +2,18 @@
 #include <fstream>
 #include <map>
 #include <string>
-#include <cctype>
 
-class HTML
+class WriteLess
 {
 private:
     std::string dictionary_file_path, input_file_path, output_file_path;
     std::ifstream dictionary_file, input_file;
     std::ofstream output_file;
-    std::map<std::string, std::string> code_map;
+    std::map<std::string, std::string> dic_map;
 
 public:
     /* constructor */
-    HTML(std::string dictionary_file_path, std::string input_file_path, std::string output_file_path)
+    WriteLess(std::string dictionary_file_path, std::string input_file_path, std::string output_file_path)
         :   dictionary_file_path {dictionary_file_path}, input_file_path {input_file_path}, output_file_path {output_file_path}
     {
         // open the code file
@@ -42,12 +41,12 @@ public:
             }
         }
 
-        this->build_code_map();
+        this->build_dic_map();
         this->build_output();
     }
 
-    /* builds the code map */
-    void build_code_map()
+    /* builds the dic map */
+    void build_dic_map()
     {
         std::string line;
         std::string key;
@@ -55,12 +54,15 @@ public:
 
         while(std::getline(this->dictionary_file, line))
         {
-            // catch the short code
+            // check if the line is a shortcode
             if(line[0] == ':')
             {
+                // check if there's a key->value pair
+                // needs to be added to the dictionary map
+                // before storing a new pair
                 if(!key.empty())
                 {
-                    this->code_map.insert(std::make_pair(key, value));
+                    this->dic_map.insert(std::make_pair(key, value));
                     key = line;
                     value = "";
                     continue;
@@ -68,12 +70,21 @@ public:
 
                 key = line;
             }
+            // check if the line is a comment or a new line
+            else if(line[0] == '/' && line[1] == '/')
+            {
+                continue;
+            }
+            // add the line to the value
             else
             {
-                if(line != "\n")
+                value += (line + '\n');
+
+                // check if it's the last line (end of file)
+                if(this->dictionary_file.eof())
                 {
-                    value += line + '\n';
-                } 
+                    this->dic_map.insert(std::make_pair(key, value));
+                }
             }
         }
     }
@@ -86,23 +97,26 @@ public:
         std::string key;
         std::string value;
 
-        while(input_file >> line)
+        while(std::getline(this->input_file, line))
         {
-            output_file << code_map[line];
+            if(line[0] = ':')
+            {
+                this->output_file << dic_map[line];
+            }  
         }
     }
 
-    /* prints the code_map */
-    void display_code_map()
+    /* prints the dictionary map sorted alphabetically as pairs of key -> value */
+    void display_dic_map()
     {
-        for(const auto &elem: this->code_map)
+        for(const auto &elem: this->dic_map)
         {
             std::cout << elem.first << "\n" << elem.second << std::endl;
         }
     }
 
     /* destructor */
-    ~HTML()
+    ~WriteLess()
     {
         dictionary_file.close();
         input_file.close();
@@ -112,8 +126,8 @@ public:
 
 int main()
 {
-    HTML html {"dictionary.txt", "input.txt", "output.html"};
-    html.display_code_map();
+    WriteLess app {"dictionary.txt", "input.txt", "output.html"};
+    app.display_dic_map();
 
     return 0;
 }

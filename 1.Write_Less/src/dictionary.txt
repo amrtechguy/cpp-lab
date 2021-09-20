@@ -6,15 +6,47 @@
     </head>
     <body>
 
+:nav
+    <nav>
+        <ul>
+            <p>This is the nav bar</p>
+            <li><a href="#">Link</a></li> 
+            <li><a href="#">Link</a></li> 
+            <li><a href="#">Link</a></li> 
+        </ul>
+    </nav>
+
 :h1
-<h1>Heading</h1>
+    <h1>Heading</h1>
 
 :h2
-<h2>Heading</h2>
+    <h2>Heading</h2>
+
+:h3
+    <h3>Heading</h3>
+
+:h4
+    <h4>Heading</h4>
+
+:h5
+    <h5>Heading</h5>
+
+:h6
+    <h6>Heading</h6>
 
 :p
-<p>This is a paragraph</p>
+    <p>This is a paragraph</p>
 
-:end
+:article
+    <article>
+        <h2>Article title</h2>
+        <p>Details of the article ...</p>
+    </article>
+
+:footer
+        <footer>
+            <p><small>This is the footer</small></p>
+        </footer>
     </body>
 </html>
+
