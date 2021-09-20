@@ -34,7 +34,7 @@ public:
             else
             {
                 // open or create the output file
-                output_file.open("output.html");
+                output_file.open(output_file_path);
                 if(!output_file.is_open())
                 {
                     std::cout << "output.txt file is missing!" << std::endl;
