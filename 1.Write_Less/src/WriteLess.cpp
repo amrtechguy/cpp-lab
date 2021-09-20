@@ -3,7 +3,7 @@
 #include <map>
 #include <string>
 
-#include "WriteLess.h"
+#include "..\include\WriteLess.h"
 
 /* constructor */
 WriteLess::WriteLess(std::string dictionary_file_path, std::string input_file_path, std::string output_file_path)
@@ -13,7 +13,7 @@ WriteLess::WriteLess(std::string dictionary_file_path, std::string input_file_pa
     dictionary_file.open(dictionary_file_path);
     if(!dictionary_file.is_open())
     {
-        std::cout << "code.txt file is missing!" << std::endl;
+        std::cout << "file is missing!" << std::endl;
     }
     else
     {
