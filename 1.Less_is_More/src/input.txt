@@ -1,0 +1,6 @@
+:head
+:footer
+:h1
+:h2
+:p
+:footer
