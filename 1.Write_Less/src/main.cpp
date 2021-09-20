@@ -127,7 +127,6 @@ public:
 int main()
 {
     WriteLess app {"dictionary.txt", "input.txt", "output.html"};
-    app.display_dic_map();
 
     return 0;
 }
