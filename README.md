@@ -7,5 +7,5 @@ All projects will be listed here ordered from oldest to latest
 ### [0] CSV library
 It handles CSV files including writing and reading from them.
 
-### [1] HTML Generator
-A fast way to generate HTML code from less code
+### [1] Less is More
+A fast way to generate text-based values based on shortcuts
