@@ -7,19 +7,19 @@
 class HTML
 {
 private:
-    std::string code_file_path, input_file_path, output_file_path;
-    std::ifstream code_file, input_file;
+    std::string dictionary_file_path, input_file_path, output_file_path;
+    std::ifstream dictionary_file, input_file;
     std::ofstream output_file;
     std::map<std::string, std::string> code_map;
 
 public:
     /* constructor */
-    HTML(std::string code_file_path, std::string input_file_path, std::string output_file_path)
-        :   code_file_path {code_file_path}, input_file_path {input_file_path}, output_file_path {output_file_path}
+    HTML(std::string dictionary_file_path, std::string input_file_path, std::string output_file_path)
+        :   dictionary_file_path {dictionary_file_path}, input_file_path {input_file_path}, output_file_path {output_file_path}
     {
         // open the code file
-        code_file.open(code_file_path);
-        if(!code_file.is_open())
+        dictionary_file.open(dictionary_file_path);
+        if(!dictionary_file.is_open())
         {
             std::cout << "code.txt file is missing!" << std::endl;
         }
@@ -53,7 +53,7 @@ public:
         std::string key;
         std::string value;
 
-        while(std::getline(this->code_file, line))
+        while(std::getline(this->dictionary_file, line))
         {
             // catch the short code
             if(line[0] == ':')
@@ -104,7 +104,7 @@ public:
     /* destructor */
     ~HTML()
     {
-        code_file.close();
+        dictionary_file.close();
         input_file.close();
         output_file.close();
     }
@@ -112,7 +112,7 @@ public:
 
 int main()
 {
-    HTML html {"code.txt", "input.txt", "output.txt"};
+    HTML html {"dictionary.txt", "input.txt", "output.html"};
     html.display_code_map();
 
     return 0;
