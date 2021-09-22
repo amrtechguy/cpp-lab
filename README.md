@@ -7,7 +7,7 @@ Once a project gets bigger, I'll create a separate repository for it.
 All projects will be listed here ordered from oldest to latest.
 
 ### [0] CSV library
-It writes to CSV files.
+It handles CSV files including searching, adding, updating, and deleting from them.
 
 ### [1] Write less
 A fast way to generate text blocks using shortcuts that you provide.
