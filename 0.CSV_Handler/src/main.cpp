@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 
-#include "CSV.h"
+#include "../include/CSV.h"
 
 int main()
 {

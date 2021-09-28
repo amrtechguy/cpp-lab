@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 
-#include "CSV.h"
+#include "../include/CSV.h"
 
 CSV::CSV(std::string file_path)
     : file_path {file_path}
