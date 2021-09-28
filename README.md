@@ -11,3 +11,6 @@ It handles CSV files including searching, adding, updating, and deleting from th
 
 ### [1] Write less
 A fast way to generate text blocks using shortcuts that you provide.
+
+## [2] File Handler
+A reference for me on how to handle files in C++
