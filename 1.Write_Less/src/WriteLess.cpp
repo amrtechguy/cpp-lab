@@ -13,7 +13,7 @@ WriteLess::WriteLess(std::string dictionary_file_path, std::string input_file_pa
     dictionary_file.open(dictionary_file_path);
     if(!dictionary_file.is_open())
     {
-        std::cout << "file is missing!" << std::endl;
+        std::cout << "File: ["<< this->dictionary_file_path << "] is missing!" << std::endl;
     }
     else
     {
@@ -21,7 +21,7 @@ WriteLess::WriteLess(std::string dictionary_file_path, std::string input_file_pa
         input_file.open(input_file_path);
         if(!input_file.is_open())
         {
-            std::cout << "input.txt file is missing!" << std::endl;
+            std::cout << "File: ["<< this->input_file_path << "] is missing!" << std::endl;
         }
         else
         {
@@ -29,7 +29,7 @@ WriteLess::WriteLess(std::string dictionary_file_path, std::string input_file_pa
             output_file.open(output_file_path);
             if(!output_file.is_open())
             {
-                std::cout << "output.txt file is missing!" << std::endl;
+                std::cout << "File: ["<< this->output_file_path << "] is missing!" << std::endl;
             }
         }
     }

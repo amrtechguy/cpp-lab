@@ -7,7 +7,7 @@
 
 int main()
 {
-    WriteLess app {"dictionary.txt", "input.txt", "output.html"};
+    WriteLess app {"./dictionary.txt", "./input.txt", "./output.html"};
     
     return 0;
 }
